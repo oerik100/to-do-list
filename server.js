@@ -21,16 +21,17 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
-app.get('/',(request, response)=>{
+app.get('/',(req, res)=>{
     db.collection('lists').find().sort().toArray()
     .then(data => {
-        response.render('index.ejs', { info: data })
+        res.render('index.ejs', { info: data })
     })
     .catch(error => console.error(error))
 })
 
 app.post('/addToDoItem', (req,res) =>{
-    db.collection('lists').insertOne({toDoItem: request.body.toDoItem})
+    db.collection('lists').insertOne({toDoItem: req.body.toDoItem,
+    priorityLevel: req.body.priorityLevel})
         .then(result => {
             console.log('Item Added')
             res.redirect('/')
