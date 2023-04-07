@@ -29,6 +29,15 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
+app.post('/addToDoItem', (req,res) =>{
+    db.collection('lists').insertOne({toDoItem: request.body.toDoItem})
+        .then(result => {
+            console.log('Item Added')
+            res.redirect('/')
+        })
+        .catch(error => console.error(error))
+})
+
 
 
 
