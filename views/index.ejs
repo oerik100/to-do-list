@@ -12,11 +12,11 @@
     <ul class="lists">
         <% for(let i=0; i < info.length; i++) {%>
             <li class="list">
-                <span><%= info[i].listItem %></span>
-                <span><%= info[i].location %></span>
-                <span><%= info[i].priority %></span>
-                <span class='fa fa-thumbs-up'></span>
-                <span class='fa fa-trash'></span>
+                <span><%= info[i].toDoItem %></span>
+                <!-- <span><%= info[i].location %></span> -->
+                <span> - </span>
+                <span><%= info[i].priorityLevel %></span>
+                <!-- <span class='fa fa-trash'></span> -->
             </li>
         <% } %>
         <!-- <span>groceries</span>
